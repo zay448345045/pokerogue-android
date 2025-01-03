@@ -2,12 +2,14 @@
 
 buildscript {
     repositories {
+google()
         // 其他仓库...
         maven { url = uri('https://maven.aliyun.com/repository/google') }
         maven { url = uri('https://maven.aliyun.com/repository/jcenter') }
         maven { url = uri('https://maven.aliyun.com/repository/public' )}
         maven {url = uri('https://dl.bintray.com/jetbrains/anko')}
-        google()
+//        google()
+        mavenCentral()
     }
     dependencies {
         // 其他插件...
@@ -17,12 +19,13 @@ buildscript {
 }
 allprojects {
     repositories {
+google()
         maven { url = uri('https://maven.aliyun.com/repository/google') }
         maven { url = uri('https://maven.aliyun.com/repository/jcenter') }
         maven { url = uri('https://maven.aliyun.com/repository/public') }
         maven {url = uri('https://dl.bintray.com/jetbrains/anko')}
-        google()
-
+        
+mavenCentral()
     }
 }
 tasks.register("clean", Delete) {
