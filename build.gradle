@@ -12,7 +12,7 @@ buildscript {
     dependencies {
         // 其他插件...
 
-        classpath 'com.android.tools.build:gradle:8.2.0' // 请使用适合你项目的版本
+        classpath 'com.android.tools.build:gradle:8.7.2' // 请使用适合你项目的版本 
     }
 }
 allprojects {
