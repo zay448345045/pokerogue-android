@@ -1,0 +1,31 @@
+release:
+    needs: build
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Download APK from Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: apk
+          path: app/build/outputs/apk/debug/
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.sha }} # 使用 commit SHA 作为 tag name
+          release_name: Release ${{ github.sha }} # 使用 commit SHA 作为 release name
+          body: |
+            自动发布的 Release 版本 (基于 action.on 修改)。
+          draft: false
+          prerelease: true # 建议设置为 true，因为可能是中间版本
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: app/build/outputs/apk/debug/app-debug.apk
+          asset_name: Pokémon.android-debug.apk
+          asset_content_type: application/vnd.android.package-archive
