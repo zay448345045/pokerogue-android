@@ -35,8 +35,9 @@ jobs:
           fetch-depth: 1
       - name: 强制拉取子模块最新代码
         run: |
+         git submodule init
          git submodule update --init --remote --recursive --depth 1
-         cd pkmain/pokerogue
+         echo "子模块拉取完毕，准备开始 Node 编译"
           echo "当前子模块分支: $(git rev-parse --abbrev-ref HEAD)"
           echo "最后一次提交信息: $(git log -1 --oneline)"
           cd ../..
