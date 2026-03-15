@@ -76,7 +76,8 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 20
-
+          cache: 'npm'
+          cache-dependency-path: pkmain/pokerogue/package-lock.json
       - name: 编译并同步 Web 资源
         run: |
           # 1. 进入子模块编译最新的 Web 代码
@@ -88,10 +89,11 @@ jobs:
           # 2. 关键：将编译产物覆盖到 Android 壳的资源目录
           # 注意：请根据你 new 分支的实际路径调整下面这两行
           # 常见的路径是 app/src/main/assets/www 或 app/src/main/assets/public
-          rm -rf app/src/main/assets/assets/web/index.html
+          rm -f app/src/main/assets/assets/web/index.html
           rm -rf app/src/main/assets/assets/web/assets/*
           cp -r pkmain/pokerogue/dist/assets/* app/src/main/assets/web/assets/
           cp pkmain/pokerogue/dist/index.html app/src/main/assets/web/index.html
+          ls -R app/src/main/assets/web/assets/ | head -n 5
       - name: debug
         run: ./gradlew assembleDebug 
         #assembleRelease --stacktrace
