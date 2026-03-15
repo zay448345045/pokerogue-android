@@ -3,12 +3,12 @@ plugins {
 }
 android {
     namespace 'com.mengnieyu.helloworld'
-    compileSdk 34
+    compileSdk 36
 
     defaultConfig {
         applicationId "com.mengnieyu.helloworld"
         minSdk 24
-        targetSdk 33
+        targetSdk 36
         versionCode 1
         versionName "1.0"
 
@@ -22,8 +22,8 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_17
-        targetCompatibility JavaVersion.VERSION_17
+        sourceCompatibility JavaVersion.VERSION_21
+        targetCompatibility JavaVersion.VERSION_21
     }
     ndkVersion '23.0.7599858'
     buildToolsVersion '34.0.0'
