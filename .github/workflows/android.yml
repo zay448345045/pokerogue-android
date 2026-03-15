@@ -32,7 +32,7 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
     #      submodules: recursive
           submodules: recursive
-          fetch-depth: 1
+          fetch-depth: 0
       - name: 强制拉取子模块最新代码
         run: |
          git submodule init
