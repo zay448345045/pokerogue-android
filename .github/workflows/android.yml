@@ -77,7 +77,7 @@ jobs:
         with:
           node-version: 20
           cache: 'npm'
-          cache-dependency-path: pkmain/pokerogue/package-lock.json
+#          cache-dependency-path: pkmain/pokerogue/package-lock.json
       - name: 编译并同步 Web 资源
         run: |
           # 1. 进入子模块编译最新的 Web 代码
