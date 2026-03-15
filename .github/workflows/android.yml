@@ -37,6 +37,15 @@ jobs:
         run: |
          git submodule init
          git submodule update --init --remote --recursive --depth 1
+         cd pkmain/pokerogue
+          git fetch origin easy --depth 1
+          git checkout easy
+          git pull origin easy
+          
+          # 4. 验证
+          echo "当前子模块分支: $(git rev-parse --abbrev-ref HEAD)"
+          echo "最后一次提交信息: $(git log -1 --oneline)"
+          cd ../..
          echo "子模块拉取完毕，准备开始 Node 编译"
           echo "当前子模块分支: $(git rev-parse --abbrev-ref HEAD)"
           echo "最后一次提交信息: $(git log -1 --oneline)"
