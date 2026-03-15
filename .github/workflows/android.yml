@@ -87,12 +87,18 @@ jobs:
 #          else
       - name: 更新 Nightly
         uses: softprops/action-gh-release@v2
-        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+#        if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
+        if: github.event_name == 'workflow_dispatch'
         with:
-          tag_name: nightly
-          name: Nightly Build
+          tag_name: build-${{ github.run_number }}
+          name: "Nightly Build#${{ github.run_number }}"
           prerelease: true
           overwrite: true
+          body: |
+            ### 构建信息
+            - **安卓壳分支**: `${{ github.event.inputs.branch }}`
+            - **子模块分支**: `easy`
+            - **构建时间**: ${{ github.event.repository.updated_at }}
           files: |
             app/build/outputs/apk/release/*.apk
             app/build/outputs/apk/debug/*.apk
