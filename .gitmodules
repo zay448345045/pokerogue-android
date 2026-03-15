@@ -1,3 +1,4 @@
 [submodule "pkmain/pokerogue"]
 	path = pkmain/pokerogue
-	url = https://github.com/pagefaultgames/pokerogue.git
+	url = https://github.com/zay448345045/pokerogue.git
+ branch = easy
