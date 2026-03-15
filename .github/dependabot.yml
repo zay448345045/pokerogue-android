@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # 针对 Android 项目的依赖更新（Gradle）
+  - package-ecosystem: "gradle"
+    directory: "/"
+    # 填入你想开启更新的分支名称
+    target-branch: "new" 
+    schedule:
+      interval: "daily" # 每天检查一次更新
+#    open-pull-requests-limit: 10 # 限制同时开启的 PR 数量
