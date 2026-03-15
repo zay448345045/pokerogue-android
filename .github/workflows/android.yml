@@ -30,18 +30,21 @@ jobs:
         uses: actions/checkout@v6
         with:
           ref: ${{ github.event.inputs.branch }}
+    #      submodules: recursive
           submodules: recursive
-          fetch-depth: 0
+          fetch-depth: 1
       - name: 强制拉取子模块最新代码
         run: |
-          # 这一步会根据 .gitmodules 里的 branch 配置去拉取最新远程提交
-          git submodule update --remote --recursive
-          
-          # 极客验证：在日志里打印一下，看看是不是你最新的修改
-          cd pkmain/pokerogue
+         git submodule update --init --remote --recursive --depth 1
+         cd pkmain/pokerogue
           echo "当前子模块分支: $(git rev-parse --abbrev-ref HEAD)"
           echo "最后一次提交信息: $(git log -1 --oneline)"
           cd ../..
+          
+  #      git submodule update --init --remote --recursive --depth 1
+          # 极客验证：在日志里打印一下，看看是不是你最新的修改 # 这一步会根据 .gitmodules 里的 branch 配置去拉取最新远程提交 git submodule update --remote --recursive
+          # 3. 仅克隆子模块的最新一次提交，不拉历史，不拉其他分支
+          
       - name: JDK
         uses: actions/setup-java@v5
         with: 
