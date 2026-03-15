@@ -3,6 +3,9 @@
 buildscript {
     repositories {
         // 其他仓库...
+
+google()         // 必须放在第一位，特别是对于 Android 和 TensorFlow 相关依赖
+    mavenCentral()   // 官方中心仓库，替代失效的 jcenter
         maven { url = uri('https://maven.aliyun.com/repository/google') }
         maven { url = uri('https://maven.aliyun.com/repository/jcenter') }
         maven { url = uri('https://maven.aliyun.com/repository/public' )}
