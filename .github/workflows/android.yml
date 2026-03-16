@@ -104,12 +104,14 @@ jobs:
           # 注意：请根据你 new 分支的实际路径调整下面这两行
           # 常见的路径是 app/src/main/assets/www 或 app/src/main/assets/public
           
-          # rm -rf app/src/main/assets/assets/web/assets/*
+          rm -rf app/src/main/assets/assets/web/assets/*
           rm -f app/src/main/assets/web/index.html
           mkdir -p app/src/main/assets/web
-          cp -r pkmain/pokerogue/dist/* app/src/main/assets/web/
+          cp -a pkmain/pokerogue/dist/. app/src/main/assets/web/
           cp pkmain/pokerogue/dist/index.html app/src/main/assets/web/index.html
           ls -R app/src/main/assets/web/assets/ | head -n 10
+          echo "==== 安卓 Assets 目录结构校验 ===="
+          ls -F app/src/main/assets/web/
       - name: debug
         run: ./gradlew assembleDebug 
         #assembleRelease --stacktrace
