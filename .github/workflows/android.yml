@@ -104,7 +104,7 @@ jobs:
           # 注意：请根据你 new 分支的实际路径调整下面这两行
           # 常见的路径是 app/src/main/assets/www 或 app/src/main/assets/public
           
-#          rm -rf app/src/main/assets/assets/web/assets/*
+          # rm -rf app/src/main/assets/assets/web/assets/*
           rm -f app/src/main/assets/assets/web/index.html
           mkdir -p app/src/main/assets/web
           cp -r pkmain/pokerogue/dist/* app/src/main/assets/web/
