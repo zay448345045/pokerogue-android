@@ -32,21 +32,23 @@ jobs:
           ref: ${{ github.event.inputs.branch }}
     #      submodules: recursive
           submodules: recursive
-          fetch-depth: 0
-      - name: 强制拉取子模块最新代码
-        run: |
-         git submodule init
-         git submodule update --init --remote --recursive --depth 1
-         cd pkmain/pokerogue
-          git fetch origin easy --depth 1
-          git checkout easy
-          git pull origin easy
+          fetch-depth: 1
+          
+      
+        
+      #git submodule init
+#         git submodule update --init --remote --recursive --depth 1
+#         cd pkmain/pokerogue
+#          git fetch origin easy --depth 1
+#          git checkout easy
+#          git pull origin easy
           
           # 4. 验证
+      - name: 强制拉取子模块最新代码
+        run: |
           echo "当前子模块分支: $(git rev-parse --abbrev-ref HEAD)"
           echo "最后一次提交信息: $(git log -1 --oneline)"
-          cd ../..
-         echo "子模块拉取完毕，准备开始 Node 编译"
+          echo "子模块拉取完毕，准备开始 Node 编译"
           echo "当前子模块分支: $(git rev-parse --abbrev-ref HEAD)"
           echo "最后一次提交信息: $(git log -1 --oneline)"
           cd ../..
@@ -83,35 +85,35 @@ jobs:
 #          echo "ANDROID_SDK_ROOT=$NEW_SDK_ROOT" >> $GITHUB_ENV
 
 
-      - name: chm
-        run: chmod +x gradlew
-      - name: 安装 Node.js 环境
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24.14.0
+#      - name: chm
+#        run: chmod +x gradlew
+#      - name: 安装 Node.js 环境
+#        uses: actions/setup-node@v6
+#        with:
+#          node-version: 24.14.0
         #  cache: 'npm'
 #cache-dependency-path: pkmain/pokerogue/package-lock.json
 #          cache-dependency-path: pkmain/pokerogue/package-lock.json
-      - name: 编译并同步 Web 资源
-        run: |
+#      - name: 编译并同步 Web 资源
+#        run: |
           # 1. 进入子模块编译最新的 Web 代码
-          cd pkmain/pokerogue
-          npm install
-          npm run build
-          cd ../..
+#          cd pkmain/pokerogue
+#          npm install
+#          npm run build
+#          cd ../..
 
           # 2. 关键：将编译产物覆盖到 Android 壳的资源目录
           # 注意：请根据你 new 分支的实际路径调整下面这两行
           # 常见的路径是 app/src/main/assets/www 或 app/src/main/assets/public
           
-          rm -rf app/src/main/assets/assets/web/assets/*
-          rm -f app/src/main/assets/web/index.html
-          mkdir -p app/src/main/assets/web
-          cp -a pkmain/pokerogue/dist/. app/src/main/assets/web/
-          cp pkmain/pokerogue/dist/index.html app/src/main/assets/web/index.html
-          ls -R app/src/main/assets/web/assets/ | head -n 10
-          echo "==== 安卓 Assets 目录结构校验 ===="
-          ls -F app/src/main/assets/web/
+#          rm -rf app/src/main/assets/assets/web/assets/*
+#          rm -f app/src/main/assets/web/index.html
+#         mkdir -p app/src/main/assets/web
+#          cp -a pkmain/pokerogue/dist/. app/src/main/assets/web/
+#          cp pkmain/pokerogue/dist/index.html app/src/main/assets/web/index.html
+ #         ls -R app/src/main/assets/web/assets/ | head -n 10
+ #         echo "==== 安卓 Assets 目录结构校验 ===="
+#          ls -F app/src/main/assets/web/
       - name: debug
         run: ./gradlew assembleDebug 
         #assembleRelease --stacktrace
