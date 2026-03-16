@@ -105,7 +105,8 @@ jobs:
           # 常见的路径是 app/src/main/assets/www 或 app/src/main/assets/public
           rm -f app/src/main/assets/assets/web/index.html
           rm -rf app/src/main/assets/assets/web/assets/*
-          cp -r pkmain/pokerogue/dist/assets/* app/src/main/assets/web/assets/
+          mkdir -p app/src/main/assets/web
+          cp -r pkmain/pokerogue/dist/* app/src/main/assets/web/
           cp pkmain/pokerogue/dist/index.html app/src/main/assets/web/index.html
           ls -R app/src/main/assets/web/assets/ | head -n 5
       - name: debug
