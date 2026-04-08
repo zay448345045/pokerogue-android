@@ -49,3 +49,11 @@ After each installation, the previous save data will be inherited.
 <a href="https://smms.app/image/fOwC29NYQ81rVvy" target="_blank"><img src="https://s2.loli.net/2024/06/02/fOwC29NYQ81rVvy.png" width=184 height=320></a>
 
 <a href="https://smms.app/image/aqo3BJyw8xTrbOV" target="_blank"><img src="https://s2.loli.net/2024/06/02/aqo3BJyw8xTrbOV.png" width=380 height=120></a>
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/zay448345045/pokerogue-android&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https://github.com/1596941391qq/pokerogue-android&count_bg=%2379C83D&title_bg=%23555555&icon=github.svg&icon_color=%23E7E7E7&title=hits&edge_flat=false)](https://hits.seeyoufarm.com)
+
+[![Total Downloads](https://img.shields.io/github/downloads/1596941391qq/pokerogue-android/total?style=for-the-badge&color=2ea44f&logo=github)](https://github.com/1596941391qq/pokerogue-android/releases) 
+
+[![Total Downloads](https://img.shields.io/github/downloads/zay448345045/pokerogue-android/total?style=for-the-badge&color=2ea44f&logo=github)](https://github.com/zay448345045/pokerogue-android/releases)
