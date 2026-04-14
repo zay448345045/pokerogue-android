@@ -15,7 +15,7 @@ google()         // 必须放在第一位，特别是对于 Android 和 TensorFl
     dependencies {
         // 其他插件...
 
-        classpath 'com.android.tools.build:gradle:9.1.0' // 请使用适合你项目的版本
+        classpath 'com.android.tools.build:gradle:9.1.1' // 请使用适合你项目的版本
     }
 }
 allprojects {
